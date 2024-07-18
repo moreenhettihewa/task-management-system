@@ -1,14 +1,13 @@
 package com.tasks.managemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -25,5 +24,8 @@ public class Project {
     private String name;
 
     private String description;
+
+    @OneToMany( mappedBy = "project"  , cascade = CascadeType.ALL)
+    private List<Task> tasks;
 
 }

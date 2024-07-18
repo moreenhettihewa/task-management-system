@@ -1,9 +1,7 @@
 package com.tasks.managemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import lombok.*;
 import java.time.LocalDate;
 
@@ -29,4 +27,9 @@ public class Task {
 
     private Status status;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Project project;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Assigner assigner;
 }
